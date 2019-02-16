@@ -5,11 +5,11 @@
 * <a href="#2面向对象与面向过程的区别">2.面向对象与面向过程的区别</a>
 * <a href="#3Java与C++的区别">3.Java与C++的区别</a>
 * <a href="#4重载与重写的区别">4.重载与重写的区别</a>
-* <a href="#5Java面向对象编程三大特性\\：封装\\ 继承\\ 多态">5.Java面向对象编程三大特性：封装 继承 多态</a>
+* <a href="#5Java面向对象编程三大特性封装-继承-多态">5.Java面向对象编程三大特性：封装 继承 多态</a>
 * <a href="#6线程安全与非线程安全">6.线程安全与非线程安全</a>
 * <a href="#7接口">7.接口</a>
-* <a href="#8final\\、abstract">8.final、abstract</a>
-* <a href="#9Java中的赋值与if\\(\\)细节">9.Java中的赋值与if()细节</a>
+* <a href="#8finalabstract">8.final、abstract</a>
+* <a href="#9Java中的赋值与if细节">9.Java中的赋值与if()细节</a>
 
 ## 1.Java语言的特点
 
