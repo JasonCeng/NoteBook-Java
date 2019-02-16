@@ -2,7 +2,7 @@
 
 ## 目录
 * [1.Java语言的特点](https://github.com/JasonCeng/NoteBook-Java/blob/master/Java%E8%AF%AD%E8%A8%80%E7%9F%A5%E8%AF%86/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#1java%E8%AF%AD%E8%A8%80%E7%9A%84%E7%89%B9%E7%82%B9)
-* <a href="#2.面向对象与面向过程的区别">2.面向对象与面向过程的区别</a>
+* <a href="#2面向对象与面向过程的区别">2.面向对象与面向过程的区别</a>
 * 3.Java与C++的区别
 * 4.重载与重写的区别
 * 5.Java面向对象编程三大特性：封装 继承 多态
