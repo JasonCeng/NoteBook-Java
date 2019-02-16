@@ -3,13 +3,13 @@
 ## 目录
 * [1.Java语言的特点](https://github.com/JasonCeng/NoteBook-Java/blob/master/Java%E8%AF%AD%E8%A8%80%E7%9F%A5%E8%AF%86/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#1java%E8%AF%AD%E8%A8%80%E7%9A%84%E7%89%B9%E7%82%B9)
 * <a href="#2面向对象与面向过程的区别">2.面向对象与面向过程的区别</a>
-* 3.Java与C++的区别
-* 4.重载与重写的区别
-* 5.Java面向对象编程三大特性：封装 继承 多态
-* 6.线程安全与非线程安全
-* 7.接口
-* 8.final、abstract
-* 9.Java中的赋值与if()细节
+* <a href="#3Java与C++的区别">3.Java与C++的区别</a>
+* <a href="#4重载与重写的区别">4.重载与重写的区别</a>
+* <a href="#5Java面向对象编程三大特性：封装 继承 多态">5.Java面向对象编程三大特性：封装 继承 多态</a>
+* <a href="#6线程安全与非线程安全">6.线程安全与非线程安全</a>
+* <a href="#7接口">7.接口</a>
+* <a href="#8final、abstract">8.final、abstract</a>
+* <a href="#9Java中的赋值与if()细节">9.Java中的赋值与if()细节</a>
 
 ## 1.Java语言的特点
 
