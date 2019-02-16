@@ -70,7 +70,7 @@ C中赋值后会与0比较，如果大于0，则返回true；而Java不会与0�
 
 **详细解析：**
 
-**C语言中，**当if语句中的条件为赋值语句时，实际是将赋值后的结果与0比较（左值）
+**C语言中，** 当if语句中的条件为赋值语句时，实际是将赋值后的结果与0比较（左值）
 如：if(1)  实际括号内会执行如下判断：1>0，最后返回true到if的括号中执行if判断。
 
-**Java语言中，**虽然也用了左值，但是不进行与0比较这一步操作，而是直接将左值放到if的括号中执行if判断。但是int类型不能转换为boolean类型，所以会报错：“Type mismatch：cannot convert from int to boolean”
+**Java语言中，** 虽然也用了左值，但是不进行与0比较这一步操作，而是直接将左值放到if的括号中执行if判断。但是int类型不能转换为boolean类型，所以会报错：“Type mismatch：cannot convert from int to boolean”
