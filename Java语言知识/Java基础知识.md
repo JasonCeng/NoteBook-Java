@@ -8,7 +8,7 @@
 * <a href="#5Java面向对象编程三大特性封装-继承-多态">5.Java面向对象编程三大特性：封装 继承 多态</a>
 * <a href="#6线程安全与非线程安全">6.线程安全与非线程安全</a>
 * <a href="#7接口抽象类">7.接口、抽象类</a>
-* <a href="#8finalabstractpublicclass">8.final、abstract、public、class</a>
+* <a href="#8finalstaticabstractpublicclass">8.final、static、abstract、public、class</a>
 * <a href="#9Java中的赋值与if细节">9.Java中的赋值与if()细节</a>
 * <a href="#10webxml">10.web.xml</a>
 * <a href="#11常见易混淆api">11.常见易混淆api</a>
@@ -137,7 +137,7 @@ Properties是线程安全的，因为Properties继承了HashTable，且HashTable
     </table>
 
 
-## 8.final、abstract、public、class
+## 8.final、static、abstract、public、class
 
 * **final关键字**
 
@@ -154,6 +154,89 @@ Properties是线程安全的，因为Properties继承了HashTable，且HashTable
   ⑥final的**局部变量**声明时不必马上初始化，但使用时必须初始化，且只能初始化一次。
 
   ⑦final定义变量，可用static也可以不用。
+
+* **static关键字**
+  * **特点**
+
+    ①被static修饰的成员变量属于类，不属于这个类的某个对象。（也就是说，多个对象在访问或修改static修饰的成员变量时，其中一个对象将static成员变量值进行了修改，其他对象中的static成员变量值跟着改变，即多个对象共享一个static成员变量）
+
+    ```Java
+    class Demo {
+      public static int num = 100;
+    }
+
+    class Test {
+      public void main(String[] args) {
+        Demo d1 = new Demo();
+        Demo d2 = new Demo();
+        d1.num = 200;
+        System.out.println(d1.num);  // 结果为200
+        System.out.println(d2.num);  // 结果为200
+      }
+    }
+    ```
+
+    ②被static修饰的成员变量可以且建议通过类名直接访问。访问成员的格式：
+
+    ```java
+    类名.静态成员变量名
+    类名.静态成员方法名(参数)
+
+    对象名.静态成员变量名 // 不建议使用该方式，会出现警告
+    对象名.静态成员方法名(参数) // 不建议使用该方式，会出现警告
+    ```
+
+    ```java
+    class Demo {
+      //静态成员变量
+      public static int num = 100;
+      //静态方法
+      public static void method() {
+        System.out.println("静态方法");
+      }
+    }
+
+    class Test {
+      public void main(String[] args) {
+        System.out.println(Demo.num);
+        Demo.method();
+      }
+    }
+    ```
+
+  * **注意事项**
+
+    ①静态内容是优先与对象存在，只能访问静态，不能使用this/super.静态修饰的内容存在于静态区。
+
+    ```Java
+    class Demo {
+      //成员变量
+	    public int num = 100;
+      //静态方法
+	    public static void method(){
+        //不能使用this/super。
+        System.out.println(this.num);  // 会报错
+      }
+    }
+    ```
+
+    ②同一个类中，静态成员只能访问静态成员
+
+    ```Java
+    class Demo {
+      //成员变量
+	    public int num = 100;
+      //静态成员变量
+	    public static int count = 200;
+      //静态方法
+      public static void method(){
+        //System.out.println(num); 静态方法中，只能访问静态成员变量或静态成员方法
+        System.out.println(count);
+      }
+    }
+    ```
+
+    ③main方法为静态方法仅仅为程序执行入口，它不属于任何一个对象，可以定义在任何类中。
 
 * **abstract关键字**
 
