@@ -137,7 +137,7 @@ Properties是线程安全的，因为Properties继承了HashTable，且HashTable
     </table>
 
 
-## 8.final、static、abstract、public、class
+## 8.final、static、abstract、public、class、public static final
 
 * **final关键字**
 
@@ -268,6 +268,41 @@ Properties是线程安全的，因为Properties继承了HashTable，且HashTable
   **类中方法：** 除了private权限外，其他权限的方法（没有表示默认default），均可以用“对象.方法名”来调用。private方法可以用java反射机制调用。当然如果用private修饰方法，该方法只在类的内部调用。其中比较著名的就是单例模式中的私有构造方法。
 
   **static属性：** static方法在编译期就已经生成了，其他方法在运行期生成。非私有的static方法可以用“类.方法名”调用。但是私有的static变量和方法都是不可能被调用的，虽然private static这种写法很少见，但仍然存在，且编译期不会报错。上述代码块中```static void method2() {   }```的权限是默认权限，所以可以用“类.方法名”来调用，即通过“A.method2()”来调用。如果上述代码块中写出```private static void method2() {    }```,那么则不能通过“A.method2()”来调用。
+
+* **public static final**
+
+  * **作用：** 定义静态常量
+
+  * **格式**
+
+    ```Java
+    public static final 数据类型 变量名 = 值; //变量名用全部大写，多个单词使用下划线连接
+    class Demo {
+      public static final String DEMO_NAME = "静态常量demo";
+      public static void method() {
+        System.out.println("一个静态方法");
+      }
+    }
+    ```
+
+  * **注意事项**
+
+    ①当我们想使用类的静态成员时，不需要创建对象，直接使用类名来访问即可。
+    ```Java
+    System.out.println(Demo.DEMO_NAME); // 打印：静态常量demo
+    Demo.method(); // 调用一个静态方法
+    ```
+
+    ② 接口中的每个成员变量都默认使用public staitc final修饰，即均为静态常量，由于接口没有构造方法，所以必须显示赋值。可以直接用接口名访问。
+
+    ```Java
+    interface Inter {
+      public static final int COUNT = 100;
+    }
+
+    //访问接口中的静态常量
+    Inter.COUNT
+    ```
 
 ## 9.Java中的赋值与if()细节
 
