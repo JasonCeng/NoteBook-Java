@@ -97,9 +97,9 @@ Properties是线程安全的，因为Properties继承了HashTable，且HashTable
 
   <table>
     <tr>
-        <td>**jdk版本**</td>
-        <td>**接口**</td>
-        <td>**抽象类**</td>
+        <td><b>jdk版本</b></td>
+        <td><b>接口</b></td>
+        <td><b>抽象类</b></td>
    </tr>
     <tr>
         <td rowspan="7">jdk1.8之前</td>    
