@@ -140,7 +140,7 @@ Properties是线程安全的，因为Properties继承了HashTable，且HashTable
     </table>
 
 
-## 8.final、static、abstract、public、class、public static final
+## 8.final、static、abstract、public、class、public static final、finally
 
 * **final关键字**
 
@@ -306,6 +306,9 @@ Properties是线程安全的，因为Properties继承了HashTable，且HashTable
     //访问接口中的静态常量
     Inter.COUNT
     ```
+
+  * **finally关键字**
+  在tray/catch/finally代码块中，如果finally块中有return语句的话，它将覆盖掉函数中其他return语句。
 
 ## 9.Java中的赋值与if()细节
 
