@@ -62,7 +62,7 @@
   子类重写父类方法时，方法的访问权限不能小于原访问权限，在接口中，方法的默认权限是public，所以子类重写后只能是public。
 
   A subclass inherits all the members (fields, methods, and nested classes) from its superclass. Constructors are not members, so they are not inherited by subclasses, but the constructor of the superclass can be invoked from the subclass.   [子类从其父类继承所有成员（字段，方法和嵌套类）。 构造函数不是成员，所以它们不被子类继承，但是可以从子类调用超类的构造函数。]来自Oracle官方文档https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
-  
+
 
 ## 6.线程安全与非线程安全
 
@@ -385,3 +385,13 @@ web.xml文件是用来初始化配置信息，web.xml是放置在WEB-INF目录�
   * 1.get()采用立即加载方式，而load()采用延迟加载。get()方法执行的时候，会立即向数据库发出查询语句，而load()方法返回的是一个代理（此代理中只有一个id属性），只有等真正使用该对象属性的时候，才会发出sql语句。
 
   * 2.如果数据库中没有对应的记录，get()方法返回的是null，而load()方法出现异常ObjectNotFoundException.
+
+## 13.File
+
+* **FileInputStream：**提供了对文件的字节读取
+
+* **FileReader：**提供了对文件的字符读取
+
+* **FileWriter：**提供了对文件的字符写入
+
+* **File：**提供了对文件的基本操作，包括对删除，文件路径等操作
