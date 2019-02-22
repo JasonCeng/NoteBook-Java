@@ -81,7 +81,7 @@
 
   * HashTbale和ConcurrentHashMap都是线程安全的，区别在于他们对加锁的范围不同，HashTable对整张表进行加锁，而ConcurrentHashMap将Hash表分为16桶（segment），每次只对需要的桶进行加锁。
 
-  * Collections类提供了synchronizedXxx()方法，可以将指定的集合包装成线程同步的集合。例如：
+  * Collection类提供了synchronizedXxx()方法，可以将指定的集合包装成线程同步的集合。例如：
     ```java
     List list = Collection.synchronizedList(new ArrayList());
     Set set = Collection.synchronizedSet(new HashSet());
@@ -397,12 +397,6 @@ web.xml文件是用来初始化配置信息，web.xml是放置在WEB-INF目录�
 
   * **反射机制：**在运行状态中，对任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性。
 
-## 13.Hibernate中get()和load()的区别：
-
-  * 1.get()采用立即加载方式，而load()采用延迟加载。get()方法执行的时候，会立即向数据库发出查询语句，而load()方法返回的是一个代理（此代理中只有一个id属性），只有等真正使用该对象属性的时候，才会发出sql语句。
-
-  * 2.如果数据库中没有对应的记录，get()方法返回的是null，而load()方法出现异常ObjectNotFoundException.
-
 ## 13.File
 
 * **FileInputStream：**提供了对文件的字节读取
@@ -470,3 +464,9 @@ char[] chArr = new char[3];//默认空格
 int[] intArr = new int[2];//默认0
 String[] strArr = new String[2];//默认null
 ```
+
+## 19.静态内部类和静态方法
+
+* 1.静态内部类才可以声明静态方法
+
+* 2.静态方法不可以使用非静态变量
