@@ -66,11 +66,15 @@
 
 ## 6.线程安全与非线程安全
 
-Vector相当于一个线程安全的List。
-HashMap是非线程安全的，其对应的线程安全类是HashTable。
-ArrayList是非线程安全的，其对应的线程安全类是Vector。
-StringBuffer是线程安全的，其对应的非线程安全类是StringBuilder。
-Properties是线程安全的，因为Properties继承了HashTable，且HashTable是线程安全的。
+* Vector相当于一个线程安全的List。
+
+* HashMap是非线程安全的，其对应的线程安全类是HashTable。
+
+* ArrayList是非线程安全的，其对应的线程安全类是Vector。
+
+* StringBuffer是线程安全的，其对应的非线程安全类是StringBuilder。
+
+* Properties是线程安全的，因为Properties继承了HashTable，且HashTable是线程安全的。
 
 
 
@@ -398,3 +402,41 @@ web.xml文件是用来初始化配置信息，web.xml是放置在WEB-INF目录�
 * **FileWriter：**提供了对文件的字符写入
 
 * **File：**提供了对文件的基本操作，包括对删除，文件路径等操作
+
+## 14.回收机制
+
+Java的内存回收是自动的，GC在后台运行，不需要用户手动操作。内存回收线程可以释放无用的对象内存。
+
+## 15.this()与super()
+
+* 1.调用super()必须写在子类构造方法的第一行，否则编译不通过。每个子类构造方法的第一条语句，都是隐含地调用super()，如果父类没有这种形式的构造函数，那么在编译的时候就会报错。
+
+* 2.super()和this()类似，区别是，super从子类中调用父类的构造方法，this()在同一类内调用其他方法。
+
+* 3.super()和this()均需放在构造方法内第一行。
+
+* 4.尽管可以用this调用一个构造器，但却不能调用两个。
+
+* 5.this和super不能同时出现在一个构造函数里面，因为this必然会调用其他的构造函数，其他的构造函数必然也会有super语句的存在，这样在同一个构造函数里面就有了相同的语句，就失去了语句的意义，编译器也不会通过。
+
+* 6.this()和super()都指的是对象，所以，均不可以在static环境中使用。包括：static变量、static方法、static语句块。
+
+* 7.从本质上讲，this是一个指向本对象的指针，然而super是一个Java关键字。
+
+## 16.Socket通信编程
+* Socket套接字：源IP地址、目标IP地址、源端口号和目标端口号的组合
+
+* 服务器端：SercerSocket提供的实例 ServerSocket server = new ServerSocket(端口号)
+
+* 客户端：Socket提供的实例 Socket soc = new Socket(ip地址，端口号)
+
+## 17.Integer的equals方法
+```java
+public boolean equals(Onject obj) {
+  if(obj instanceof Integer) {
+    return value == ((Integer)obj).intValue();
+  }
+  return false;
+}
+```
+当传去的obj实参是Integer实例且value值也相等的情况下返回真，其他返回假。
