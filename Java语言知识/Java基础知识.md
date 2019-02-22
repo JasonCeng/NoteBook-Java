@@ -76,6 +76,16 @@
 
 * Properties是线程安全的，因为Properties继承了HashTable，且HashTable是线程安全的。
 
+* **拓展**
+  * HashMap、TreeMap未进行同步考虑，是线程不安全的。
+
+  * HashTbale和ConcurrentHashMap都是线程安全的，区别在于他们对加锁的范围不同，HashTable对整张表进行加锁，而ConcurrentHashMap将Hash表分为16桶（segment），每次只对需要的桶进行加锁。
+
+  * Collections类提供了synchronizedXxx()方法，可以将指定的集合包装成线程同步的集合。例如：
+    ```java
+    List list = Collection.synchronizedList(new ArrayList());
+    Set set = Collection.synchronizedSet(new HashSet());
+    ```
 
 
 ## 7.接口、抽象类
@@ -440,3 +450,23 @@ public boolean equals(Onject obj) {
 }
 ```
 当传去的obj实参是Integer实例且value值也相等的情况下返回真，其他返回假。
+
+## 18.Map的key和value问题
+
+Map接口有两个经典的子接口分别是Hashtable和Hashmap。
+
+Hashtable线程安全，不支持key和value为空，key不能重复，但value可以重复。
+
+Hashmap非线程安全，支持key和value为空，key不能重复，但value可以重复。
+
+## 19.各种数据类型及其默认值
+
+| 数据类型 | short | int | long | float | double | char | boolean | 所有引用数据类型(如String) |
+| :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: |
+| **默认初始值** | 0 | 0 | 0L | 0.0f | 0 | 'u0000' | false | null |
+
+```java
+char[] chArr = new char[3];//默认空格
+int[] intArr = new int[2];//默认0
+String[] strArr = new String[2];//默认null
+```
