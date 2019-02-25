@@ -470,3 +470,11 @@ String[] strArr = new String[2];//默认null
 * 1.静态内部类才可以声明静态方法
 
 * 2.静态方法不可以使用非静态变量
+
+## 20.<jsp:include>标签和include指令（<%@ include file="" %>）的区别
+
+* <jsp:include>标签中药引入的资源和当前JSP页面是两个彼此独立的执行实体，即被动态引入的资源必须能够被Web容器独立执行。而include指令只能引入遵循JSP格式的文件，被引入文件与当前JSP文件需要共同合并才能翻译成一个Servlet源文件。
+
+* <jsp:include>标签中引入的资源是在运行时才包含的，而且只包含运行结果。而include指令引入的资源是在编译时期包含的，包含的是源代码。
+
+* <jsp:include>标签运行原理与RequestDispatcher.include()方法类似，即被包含的页面不能改变响应状态码或者设置响应头，而include指令没有这方面的限制。
