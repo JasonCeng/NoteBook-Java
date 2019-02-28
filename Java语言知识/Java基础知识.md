@@ -471,7 +471,13 @@ String[] strArr = new String[2];//默认null
 
 * 2.静态方法不可以使用非静态变量
 
-## 20.<jsp:include>标签和include指令（<%@ include file="" %>）的区别
+## 20.外部类和内部类
+
+* 外部类只能有两种修饰符，public和默认（default），因为外部类放在包中，只能有两种可能，包可见和包不可见。
+
+* 内部类可以有所有的修饰符，因为内部类放在外部类中，与成员变量的地位一致，所以有四种可能（public、private、protedced、default）。
+
+## 21.<jsp:include>标签和include指令（<%@ include file="" %>）的区别
 
 * <jsp:include>标签中药引入的资源和当前JSP页面是两个彼此独立的执行实体，即被动态引入的资源必须能够被Web容器独立执行。而include指令只能引入遵循JSP格式的文件，被引入文件与当前JSP文件需要共同合并才能翻译成一个Servlet源文件。
 
