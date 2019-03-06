@@ -513,3 +513,7 @@ String[] strArr = new String[2];//默认null
   一个一般性的Java程序的工作过程是这样的：一个Java源程序文件会被编译为字节码文件（以class为扩展名），每个Java程序都需要运行在自己的JVM上，然后告知JVM程序的运行入口，再被JVM通过字节码解释器加载运行。
 
   JVM初始运行时都会分配好Method Area（方法区）和Heap（堆），而JVM每遇到一个线程，就为其分配一个Program Counter Register（程序计数器），VM Stack（虚拟机栈）和Native Method Stack（本地方法栈），当线程终止时，三者所占用的内存空间就会被释放掉。非线程共享的那三个区域的生命周期与所属线程相同，而线程共享的区域与JAVA程序运行的生命周期相同，所以这也是系统垃圾回收的场所只发生在线程共享区域的原因（实际上对大部分虚拟机来说只发生在Heap上）。
+
+  方法区存放了所加载的类的信息（名称、修饰符等）、类重的静态变量、类中定义为final类型的常量、类中的Field信息、类中的方法信息，当开发人员在程序中通过Class对象中的getName、isInterface等方法来获取信息时，这些数据都源于方法区域，同时方法区域也是全局共享的，在一定的条件下它也会被GC，当方法区域需要使用的内存超过其允许的大小时，会抛出OutOfMemory的错误信息。
+
+  ![Java内存区域图](https://github.com/JasonCeng/NoteBook-Java/blob/master/Java%E8%AF%AD%E8%A8%80%E7%9F%A5%E8%AF%86/img/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.png)
