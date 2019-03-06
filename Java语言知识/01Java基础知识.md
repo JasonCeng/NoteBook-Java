@@ -517,3 +517,36 @@ String[] strArr = new String[2];//默认null
   方法区存放了所加载的类的信息（名称、修饰符等）、类重的静态变量、类中定义为final类型的常量、类中的Field信息、类中的方法信息，当开发人员在程序中通过Class对象中的getName、isInterface等方法来获取信息时，这些数据都源于方法区域，同时方法区域也是全局共享的，在一定的条件下它也会被GC，当方法区域需要使用的内存超过其允许的大小时，会抛出OutOfMemory的错误信息。
 
   ![Java内存区域图](https://github.com/JasonCeng/NoteBook-Java/blob/master/Java%E8%AF%AD%E8%A8%80%E7%9F%A5%E8%AF%86/img/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.png)
+
+## 24.Statement、PreparedStatement和CallableStatement
+* **相同点**
+  * Statement、PreparedStatement和CallableStatement都是接口（interface）。
+  * Statement继承自Wrapper；PreparedStatement继承自Statement；CallableStatemtn继承自PreparedStatement。
+
+  * Statement接口提供了执行语句和获取结果的基本方法；PreparedStatement接口添加了处理IN参数的方法；CallableStatement接口添加了处理OUT参数的方法。
+
+* **Statement的特点**
+
+  * 普通的不带参数的查询SQL。
+
+  * 支持批量更新，批量删除。
+
+  * 每次执行sql语句，数据库都要执行sql语句的编译。
+
+  * 最好用语仅执行一次查询并返回结果的情形，效率高于PreparedStatemnt。
+
+* **PreparedStatement的特点**
+
+  * 可变参数的SQL，编译一次，执行多次，效率高。
+
+  * 安全性好，有效防止sql注入等问题。
+
+  * 对于重复执行的语句，使用PreparedStatement效率会更高一点，并且在这种情况下也比较适合用batch。
+
+  * 代码的可读性和科维护性好。
+
+* **CallableStatement的特点**
+
+  * 继承自PreparedStatement，支持带参数的sql操作。
+
+  * 支持调用存储过程，提供了对输出和输入/输出参数（IN/OUT)的支持。
