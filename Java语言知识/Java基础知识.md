@@ -502,11 +502,13 @@ String[] strArr = new String[2];//默认null
   * 多线程下计数器必须使用锁保护。
 
 ## 23.JVM内存
-* JVM中的划分
+* **JVM中的划分**
 
   大多数JVM将内存区域划分为**Method Area（Non-Heap）（方法区），Heap（堆），Program Counter Regester（程序计数器），VM Stack（虚拟机栈，也有翻译成Java方法栈的），Native Method Stack（本地方法栈）**，其中Method Area和Heap是**线程共享**的，VM Stack，Native Method Stack和Program Counter Register是**非线程共享**的。
 
-* 划分线程共享和非线程共享的原因
+![JVM内存模型图](https://github.com/JasonCeng/NoteBook-Java/blob/master/Java%E8%AF%AD%E8%A8%80%E7%9F%A5%E8%AF%86/img/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%9B%BE.png)
+
+* **划分线程共享和非线程共享的原因**
 
   一个一般性的Java程序的工作过程是这样的：一个Java源程序文件会被编译为字节码文件（以class为扩展名），每个Java程序都需要运行在自己的JVM上，然后告知JVM程序的运行入口，再被JVM通过字节码解释器加载运行。
 
