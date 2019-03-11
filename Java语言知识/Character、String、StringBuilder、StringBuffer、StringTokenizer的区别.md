@@ -84,6 +84,8 @@ public class Text {
 
 ![String与StringBuffer的比较](https://github.com/JasonCeng/NoteBook-Java/blob/master/Java%E8%AF%AD%E8%A8%80%E7%9F%A5%E8%AF%86/img/String%E4%B8%8EStringBuffer%E7%9A%84%E6%AF%94%E8%BE%83.png)
 
+可见在频繁修改字符串对象的情况下，String比StringBuffer更耗时，且会消耗更多的内存空间。这深刻地警醒我们，在频繁地、大量地修改字符串对象的场景下，应尽可能选择StringBuffer或StringBuilder这两个带有字符串缓冲区的类进行使用，避免使用不可修改的String对象。
+
 ## 2.StringBuilder
 可变类。
 
