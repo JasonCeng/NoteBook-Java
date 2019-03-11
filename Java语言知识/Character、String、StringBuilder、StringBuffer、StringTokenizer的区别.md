@@ -86,11 +86,48 @@ public class Text {
 
 可见在频繁修改字符串对象的情况下，String比StringBuffer更耗时，且会消耗更多的内存空间。这深刻地警醒我们，在频繁地、大量地修改字符串对象的场景下，应尽可能选择StringBuffer或StringBuilder这两个带有字符串缓冲区的类进行使用，避免使用不可修改的String对象。
 
-## 2.StringBuilder
-可变类。
+## 2.StringBuffer
 
-## 3.StringBuffer
-可变类。
+* 可变类。当对象被创建后仍然可以对其值进行修改。
+
+* 适合于一个字符串经常需要被修改的**多线程**场景中。
+
+* 只能使用构造函数```StringBuffer s = new StringBuffer("Hello");```的方式来初始化。
+
+* 调用```append(String str | Char c)```等方法进行字符串修改。
+
+* 因为StringBuffer是线程安全的，所以适用于多线程场景。
+
+* StringBuffer必要时可以对这些方法进行同步，所以任意特定实例上的所有操作就好像是以串行顺序发生的，该顺序与所涉及的每个进程进行的方法调用顺序一致。
+
+## 3.StringBuilder
+
+* 可变类。
+
+* 适合于一个字符串经常需要被修改的**单线程**场景中。
+
+* 调用```append(String str | Char c)、insert(int offset, String str | Char c)```等方法进行字符串修改。
+
+* 因为StringBuilder是非线程安全的，所以只适用于单线程场景，但这也使其执行效率上更优一些。
+
+* 执行效率上，```StringBuilder > StringBuffer > String```
+
+* **小结：**如果要操作的数据量比较小，可以考虑优先使用String类；如果在单线程下操作大量数据应优先使用StringBuilder类；如果在多线程下操作大量数据，应优先考虑StringBuffer类。
 
 ## 4.StringTokenizer
-分隔字符串的工具类。
+分隔字符串的工具类。示例如下：
+```Java
+import java.util.StringTokenizer;
+
+public class StringTokenizerTest {
+
+	public static void main(String[] args) {
+		StringTokenizer st = new StringTokenizer("Welcome to our country");
+		while (st.hasMoreTokens()) {
+			System.out.println(st.nextToken());
+		}
+
+	}
+
+}
+```
