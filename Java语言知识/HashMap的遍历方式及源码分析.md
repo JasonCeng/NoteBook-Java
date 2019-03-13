@@ -33,3 +33,10 @@ for(Entry<String, String> entry : entrySet){
   entry.getValue();
 }
 ```
+（5）通过map.values()遍历所有的value，但不能遍历key
+```java
+Map<String, String> map = new HashMap<String, String>();
+for(String value : map.values()){
+  return value;
+}
+```
