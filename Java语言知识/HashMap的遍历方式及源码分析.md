@@ -40,3 +40,25 @@ for(String value : map.values()){
   return value;
 }
 ```
+## 2.HashMap五种遍历方式的性能测试及对比
+以下是性能测试代码，会输出不同数量级大小的ArrayList和LinkedList各种遍历方式所花费的时间。
+```java
+
+```
+
+## 3.HashMap源码分析
+### （1）JDK7中的HashMap
+HashMap底层维护一个数组，数组中的每一项都是一个Entry
+```Java
+transient Entry<k,v>[] table;
+```
+我们向HashMap中放置的对象实际上是存储在该数组当中。
+而Map中的key，value则以Entry的形式存放在数组中。
+```Java
+static class Entery<K,V> implements Map.Entry<K,V> {
+  final K key;
+  V value;
+  Entry<K,V> next;
+  int hash;
+}
+```
