@@ -62,3 +62,4 @@ static class Entery<K,V> implements Map.Entry<K,V> {
   int hash;
 }
 ```
+而这个Entry应该放在数组的哪一个位置上
