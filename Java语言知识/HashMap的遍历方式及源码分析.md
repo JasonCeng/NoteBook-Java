@@ -62,4 +62,12 @@ static class Entery<K,V> implements Map.Entry<K,V> {
   int hash;
 }
 ```
-而这个Entry应该放在数组的哪一个位置上
+而这个Entry应该放在数组的哪一个位置上（这个位置通常称为位桶或者Hash桶，即hash值相同的Entry会放在同一位置，用链表相连），是通过key的hashCode来计算的。
+```Java
+final int hash(Object k) {
+  int h = 0;
+  h ^= k.hashCode();
+  h ^=(h >>> 20)^(h >>> 12);
+  return h ^ (h >>> 7) ^ (h >>> 4);
+}
+```
