@@ -29,7 +29,15 @@ JVM堆内存分为2块：**Permanent Space** 和 **Heap Space**
 （1）JVM会试图为相关Java对象在年轻代的Eden区中初始化一块内存区域。
 （2）当Eden区空间足够时，内存申请结束。否则执行下一步。
 （3）JVM试图释放在Eden区中所有不活跃的对象（Young GC）。释放后若Eden空
-（4）间仍然不足以放入新对象，JVM则试图将部分Eden区中活跃对象放入Survivor区。
-（5）Survivor区被用来作为Eden区及年老代的中间交换区域。当年老代空间足够时，Survivor区中存活了一定次数的对象会被移到年老代。
-（6）当年老代空间不够时，JVM会在年老代进行完全的垃圾回收（Full GC）。
-（7）Full GC后，若Survivor区及年老代仍然无法存放从Eden区复制过来的对象，则会导致JVM无法在Eden区为新生成的对象申请内存，即出现“Out of Memory”。
+间仍然不足以放入新对象，JVM则试图将部分Eden区中活跃对象放入Survivor区。
+（4）Survivor区被用来作为Eden区及年老代的中间交换区域。当年老代空间足够时，Survivor区中存活了一定次数的对象会被移到年老代。
+（5）当年老代空间不够时，JVM会在年老代进行完全的垃圾回收（Full GC）。
+（6）Full GC后，若Survivor区及年老代仍然无法存放从Eden区复制过来的对象，则会导致JVM无法在Eden区为新生成的对象申请内存，即出现“Out of Memory”。
+
+* **OOM（“Out of Memory”）异常一般主要有如下2种原因：**
+（1）年老代溢出，表现为：java.lang.OutOfMemoryError:Javaheapspace
+这是最常见的情况，产生的原因可能是：设置的内存参数Xmx过小或程序的内存泄露及使用不当问题。
+例如循环上万次的字符串处理、创建上千万个对象、在一段代码内申请上百M甚至上G的内存。还有的时候虽然不会报内存溢出，却会使系统不间断的垃圾回收，也无法处理其它请求。这种情况下除了检查程序、打印堆内存等方法排查，还可以借助一些内存分析工具，比如MAT就很不错。
+
+（2）持久代溢出，表现为：java.lang.OutOfMemoryError:PermGenspace
+通常由于持久代设置过小，动态加载了大量Java类而导致溢出，解决办法唯有将参数 -XX:MaxPermSize 调大（一般256m能满足绝大多数应用程序需求）。将部分Java类放到容器共享区（例如Tomcat share lib）去加载的办法也是一个思路，但前提是容器里部署了多个应用，且这些应用有大量的共享类库。
