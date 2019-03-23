@@ -15,3 +15,14 @@ ArrayList、Vector、LinkList类均在java.util包中，均为科伸缩数组，
 * 但在插入元素时需要移动大量的元素，所以对数据的插入操作执行得比较慢。
 * 有一个初始容量的大小，当里面存储的元素超过这个大小时就需要动态地扩充它们的存储空间。
 * 为了提高程序的效率，每次扩充容量，不是简单地扩充一个单元，而是一次增加多个单元。ArrayList一次扩充为原来的**2倍**。Vector每次扩充空间的大小是可以设置的。
+
+#### ArrayList与Vector的区别
+* 没有一个ArrayList的方法是同步的，而Vector的绝大多数方法（如add、insert、remove、set、equals、hashcode等）都是直接或间接同步的，所以Vector是线程安全的，ArrayList是非线程安全的。
+
+* 正因为Vector提供了线程安全机制，其性能要略逊于ArrayList。
+
+## 3.LinkedList
+* 采用双向同步列表来实现。
+* 对数据的索引需要从列表头开始遍历，因此随机访问则效率比较低。
+* 但是插入元素时不需要移动元素，因此插入效率比较高。
+* LinkedList是非线程安全的容器。
