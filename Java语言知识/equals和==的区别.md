@@ -12,3 +12,6 @@
 ## String的equals()方法：
 
 * 比较两个字符串内容是否相等
+
+## 参考：
+[1] [Java语法----Java中equals和==的区别](https://www.cnblogs.com/smyhvae/p/3929585.html)
